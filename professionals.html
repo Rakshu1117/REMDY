@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remedy — Join our professional network</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== REMEDY PROFESSIONALS.HTML – PREMIUM RECRUITMENT LANDING =====
+             complete standalone page with header, hero, why join, steps, form, footer
+             matches brand guidelines, rich & trustworthy
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-deep: #0a4b50;
+            --primary-wave: #1e6d6b;
+            --primary-mist: #d6e9ea;
+            --accent-coral: #e07f5f;
+            --neutral-sand: #faf3ea;
+            --neutral-drift: #e6ddd4;
+            --neutral-charcoal: #1f2f33;
+            --neutral-stone: #4c6369;
+            --white-ivory: #fffefc;
+            --shadow-sm: 0 8px 20px rgba(10,75,80,0.04);
+            --shadow-md: 0 16px 32px rgba(10,75,80,0.08);
+            --shadow-lg: 0 28px 44px rgba(10,75,80,0.12);
+            --radius-card: 32px;
+            --radius-btn: 60px;
+            --transition: all 0.35s cubic-bezier(0.22, 0.97, 0.34, 1.02);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background-color: var(--neutral-sand);
+            color: var(--neutral-charcoal);
+            line-height: 1.5;
+        }
+
+        /* ----- HEADER (same as index, consistent navigation) ----- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 254, 252, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(230, 221, 212, 0.6);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary-deep);
+        }
+        .logo i {
+            font-size: 2rem;
+            color: var(--accent-coral);
+            transition: transform 0.3s;
+        }
+        .logo:hover i {
+            transform: rotate(-5deg) scale(1.05);
+        }
+        .logo span {
+            background: linear-gradient(145deg, var(--primary-deep), var(--primary-wave));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--neutral-stone);
+            font-weight: 550;
+            font-size: 0.98rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: var(--accent-coral);
+            transition: width 0.25s;
+            border-radius: 4px;
+        }
+        .nav-links a:hover {
+            color: var(--primary-deep);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a.active {
+            color: var(--primary-deep);
+            font-weight: 650;
+        }
+        .nav-links a.active::after {
+            width: 100%;
+            background: var(--accent-coral);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--primary-wave);
+            padding: 0.6rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--primary-deep);
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .btn-outline:hover {
+            background: var(--primary-wave);
+            color: white;
+            border-color: var(--primary-wave);
+        }
+        .btn-solid {
+            background: var(--primary-deep);
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 16px rgba(10,75,80,0.12);
+        }
+        .btn-solid:hover {
+            background: var(--primary-wave);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 24px rgba(10,75,80,0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-deep);
+        }
+
+        /* ----- professionals HERO section (💼 Join Our Network) ----- */
+        .pro-hero {
+            background: linear-gradient(115deg, var(--white-ivory) 30%, rgba(214,233,234,0.3) 100%);
+            padding: 4rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .pro-hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .hero-left h1 {
+            font-size: 3.4rem;
+            font-weight: 750;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            color: var(--neutral-charcoal);
+        }
+        .hero-left h1 i {
+            color: var(--accent-coral);
+            font-size: 3rem;
+            margin-right: 0.5rem;
+        }
+        .hero-subhead {
+            font-size: 1.3rem;
+            color: var(--neutral-stone);
+            margin-bottom: 1.8rem;
+            font-weight: 420;
+            max-width: 550px;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+        .btn-large {
+            padding: 1rem 2.8rem;
+            font-size: 1.1rem;
+            background: var(--accent-coral);
+            border: none;
+            color: white;
+            border-radius: var(--radius-btn);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: var(--transition);
+            box-shadow: 0 12px 24px rgba(224,127,95,0.2);
+            cursor: pointer;
+        }
+        .btn-large:hover {
+            background: #c96a4d;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 32px rgba(224,127,95,0.3);
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.8rem;
+        }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-deep);
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--neutral-stone);
+        }
+        .hero-right {
+            background: linear-gradient(145deg, var(--primary-mist), white);
+            padding: 2.8rem 2rem;
+            border-radius: 48px;
+            text-align: center;
+            border: 1px solid rgba(30,109,107,0.1);
+            box-shadow: var(--shadow-lg);
+        }
+        .hero-right i {
+            font-size: 3.2rem;
+            color: var(--primary-deep);
+            background: white;
+            padding: 1rem;
+            border-radius: 32px;
+            box-shadow: 0 8px 0 rgba(10,75,80,0.06);
+            margin-bottom: 1.5rem;
+        }
+        .hero-right h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-deep);
+            margin-bottom: 0.8rem;
+        }
+        .hero-right p {
+            color: var(--neutral-stone);
+            font-size: 1.05rem;
+        }
+
+        /* ----- WHY JOIN REMEDY (benefits grid) ----- */
+        .why-join {
+            padding: 6rem 2rem;
+            background: var(--white-ivory);
+        }
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+            text-align: center;
+        }
+        .section-header h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--neutral-charcoal);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .section-header p {
+            color: var(--neutral-stone);
+            font-size: 1.2rem;
+        }
+        .benefits-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.2rem;
+        }
+        .benefit-card {
+            background: var(--neutral-sand);
+            padding: 2.4rem 2rem;
+            border-radius: var(--radius-card);
+            border: 1px solid var(--neutral-drift);
+            transition: var(--transition);
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-wave);
+            box-shadow: var(--shadow-md);
+            background: white;
+        }
+        .benefit-icon {
+            font-size: 2.2rem;
+            color: var(--accent-coral);
+            margin-bottom: 1.4rem;
+        }
+        .benefit-card h4 {
+            font-size: 1.5rem;
+            font-weight: 680;
+            margin-bottom: 0.8rem;
+            color: var(--primary-deep);
+        }
+        .benefit-card p {
+            color: var(--neutral-stone);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* ----- EASY ONBOARDING (numbered steps) ----- */
+        .onboarding-steps {
+            padding: 5rem 2rem;
+            background: rgba(214,233,234,0.2);
+        }
+        .steps-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .steps-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .steps-header h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--neutral-charcoal);
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.2rem;
+        }
+        .step-item {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem 1.2rem;
+            text-align: center;
+            border: 1px solid var(--neutral-drift);
+            position: relative;
+        }
+        .step-num {
+            width: 52px;
+            height: 52px;
+            background: var(--primary-deep);
+            color: white;
+            font-size: 1.7rem;
+            font-weight: 700;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 8px 0 rgba(10,75,80,0.1);
+        }
+        .step-item h5 {
+            font-size: 1.2rem;
+            font-weight: 680;
+            color: var(--primary-deep);
+            margin-bottom: 0.3rem;
+        }
+        .step-item p {
+            color: var(--neutral-stone);
+            font-size: 0.85rem;
+        }
+
+        /* ----- APPLICATION FORM (premium, clean) ----- */
+        .apply-section {
+            padding: 6rem 2rem;
+            background: var(--white-ivory);
+        }
+        .apply-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 48px;
+            padding: 3.5rem 3rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--neutral-drift);
+        }
+        .apply-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-deep);
+            margin-bottom: 0.6rem;
+        }
+        .apply-sub {
+            color: var(--neutral-stone);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px dashed var(--neutral-drift);
+            padding-bottom: 1.2rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 2rem;
+        }
+        .form-group {
+            margin-bottom: 0.6rem;
+        }
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--neutral-charcoal);
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.4rem;
+            border: 1.5px solid var(--neutral-drift);
+            border-radius: 60px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--neutral-sand);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-wave);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(30,109,107,0.06);
+        }
+        select.form-control {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%234c6369" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 1.2rem;
+        }
+        textarea.form-control {
+            border-radius: 32px;
+            resize: vertical;
+            min-height: 120px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .service-check {
+            background: var(--neutral-sand);
+            padding: 0.5rem 1.4rem;
+            border-radius: 50px;
+            border: 1.5px solid var(--neutral-drift);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.92rem;
+            transition: var(--transition);
+        }
+        .service-check i {
+            color: var(--accent-coral);
+            opacity: 0.6;
+        }
+        .service-check:hover {
+            border-color: var(--primary-wave);
+            background: white;
+        }
+        .service-check input {
+            margin-right: 0.3rem;
+            accent-color: var(--primary-deep);
+            transform: scale(1.1);
+        }
+        .btn-submit {
+            background: var(--primary-deep);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1.8rem;
+            transition: var(--transition);
+            box-shadow: 0 12px 24px rgba(10,75,80,0.2);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .btn-submit:hover {
+            background: var(--primary-wave);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 32px rgba(10,75,80,0.28);
+        }
+        .terms-note {
+            margin-top: 1.5rem;
+            color: var(--neutral-stone);
+            font-size: 0.85rem;
+        }
+
+        /* ----- CTA app badges (professionals page version) ----- */
+        .app-cta {
+            background: linear-gradient(105deg, #1f4e53, #236b6a);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        .app-cta h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .app-cta p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+        .app-badges {
+            display: flex;
+            gap: 1.8rem;
+            justify-content: center;
+        }
+        .app-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255,255,255,0.08);
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            transition: var(--transition);
+            color: white;
+            text-decoration: none;
+        }
+        .app-badge i {
+            font-size: 2rem;
+        }
+        .app-badge span {
+            font-weight: 600;
+        }
+        .app-badge:hover {
+            background: rgba(255,255,255,0.18);
+            transform: translateY(-5px);
+        }
+
+        /* ----- FOOTER (complete, as per your copy) ----- */
+        footer {
+            background: var(--neutral-charcoal);
+            color: #b2c4c8;
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.8fr repeat(3, 1fr);
+            gap: 3rem;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .footer-logo i {
+            color: var(--accent-coral);
+            font-size: 2rem;
+        }
+        .footer-desc {
+            color: #a0b6b9;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 280px;
+        }
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 650;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            color: #b2c4c8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s, padding 0.2s;
+        }
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            color: #b2c4c8;
+            font-size: 0.94rem;
+        }
+        .contact-info i {
+            color: var(--accent-coral);
+            width: 20px;
+        }
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+            color: #8fa9ad;
+            font-size: 0.9rem;
+        }
+
+        /* responsive */
+        @media (max-width: 1000px) {
+            .pro-hero-container { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: repeat(3,1fr); }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .header-actions { display: none; }
+            .mobile-menu-btn { display: block; }
+            .steps-grid { grid-template-columns: 1fr 1fr; }
+            .footer-container { grid-template-columns: 1fr; }
+            .hero-left h1 { font-size: 2.6rem; }
+        }
+        @media (max-width: 550px) {
+            .steps-grid { grid-template-columns: 1fr; }
+            .apply-container { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER (PROFESSIONALS ACTIVE) ========== -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-circle-nodes"></i>
+                
+                <span>Remedy</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="professionals.html" class="active">For Professionals</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-outline">Join as Pro</button>
+                <button class="btn-solid">Book a Service</button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== HERO – 💼 JOIN OUR NETWORK ===== -->
+    <section class="pro-hero">
+        <div class="pro-hero-container">
+            <div class="hero-left">
+                <h1><i class="fa-solid fa-briefcase"></i> Join Our Network</h1>
+                <p class="hero-subhead">Grow Your Career with Remedy — Join thousands of verified professionals earning more by connecting with customers in their area.</p>
+                <div class="hero-cta">
+                    <button class="btn-large"><i class="fa-regular fa-circle-check"></i> Apply Now</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Active Pros</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15 min</span>
+                        <span class="stat-label">Avg. response</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.93</span>
+                        <span class="stat-label">Pro rating</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <i class="fa-solid fa-user-shield"></i>
+                <h3>Start today</h3>
+                <p>Get verified, set your schedule, and receive job opportunities directly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY JOIN REMEDY (benefits) ===== -->
+    <section class="why-join">
+        <div class="section-header">
+            <h2>Why Join Remedy?</h2>
+            <p>We provide everything you need to succeed as a service professional.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-regular fa-calendar-circle-plus"></i></div>
+                <h4>Regular Job Opportunities</h4>
+                <p>Get consistent work from customers in your area.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-regular fa-percent"></i></div>
+                <h4>Fair Commission</h4>
+                <p>Keep more of what you earn with our competitive rates.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-regular fa-clock"></i></div>
+                <h4>Flexible Schedule</h4>
+                <p>Work when you want, accept jobs that fit your availability.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fa-regular fa-headset"></i></div>
+                <h4>Support & Training</h4>
+                <p>Get onboarding support and access to skill development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EASY ONBOARDING – 5 STEPS ===== -->
+    <section class="onboarding-steps">
+        <div class="steps-container">
+            <div class="steps-header">
+                <h2>Easy Onboarding</h2>
+                <p style="color: var(--neutral-stone);">Get started in just a few simple steps.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h5>Submit application</h5>
+                    <p>Your details & categories</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h5>Document verification</h5>
+                    <p>ID, certificates</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h5>Background check</h5>
+                    <p>Security & trust</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">4</div>
+                    <h5>Skill assessment</h5>
+                    <p>Quick evaluation</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">5</div>
+                    <h5>Welcome to Remedy!</h5>
+                    <p>Start accepting jobs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPLICATION FORM (exact copy) ===== -->
+    <section class="apply-section">
+        <div class="apply-container">
+            <h2 class="apply-title">Apply to Join</h2>
+            <p class="apply-sub">Fill out the form below and we'll get back to you within 3-5 business days.</p>
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number *</label>
+                        <input type="tel" class="form-control" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">City *</label>
+                        <input type="text" class="form-control" placeholder="Enter your city" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Select Service Categories *</label>
+                        <div class="checkbox-group">
+                            <label class="service-check"><input type="checkbox"> <i class="fa-regular fa-bolt"></i> Electrical Services</label>
+                            <label class="service-check"><input type="checkbox"> <i class="fa-regular fa-microchip"></i> Electronics Repair</label>
+                            <label class="service-check"><input type="checkbox"> <i class="fa-regular fa-car"></i> Mechanical Services</label>
+                            <label class="service-check"><input type="checkbox"> <i class="fa-regular fa-hard-hat"></i> Civil & Construction</label>
+                            <label class="service-check"><input type="checkbox"> <i class="fa-regular fa-truck-fast"></i> Pickup & Delivery</label>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Experience & Background *</label>
+                        <textarea class="form-control" placeholder="Tell us about your experience in the selected service areas" rows="4"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Additional Skills (Optional)</label>
+                        <input type="text" class="form-control" placeholder="List any additional skills or certifications">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit"><i class="fa-regular fa-paper-plane"></i> Submit Application</button>
+                <p class="terms-note">By submitting, you agree to our Terms of Service and Privacy Policy.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== APP BADGES – Coming Soon ===== -->
+    <section class="app-cta">
+        <h3>App Coming Soon!</h3>
+        <p>Get Remedy on your phone for an even better experience</p>
+        <div class="app-badges">
+            <div class="app-badge">
+                <i class="fab fa-apple"></i>
+                <span>Coming to App Store</span>
+            </div>
+            <div class="app-badge">
+                <i class="fab fa-google-play"></i>
+                <span>Coming to Google Play</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER (complete, as per your content) ===== -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                    <span>Remedy</span>
+                </div>
+                <p class="footer-desc">Your trusted on-demand service platform connecting you with verified local professionals.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Electrical Services</a></li>
+                    <li><a href="#">Electronics Repair</a></li>
+                    <li><a href="#">Mechanical Services</a></li>
+                    <li><a href="#">Civil & Construction</a></li>
+                    <li><a href="#">Pickup & Delivery</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">For Professionals</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul class="contact-info">
+                    <li><i class="fa-regular fa-envelope"></i> support@remedy.app</li>
+                    <li><i class="fa-regular fa-phone"></i> +91 8884850821</li>
+                    <li><i class="fa-regular fa-location-dot"></i> Ballari</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Remedy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- micro interactions (demo) -->
+    <script>
+        (function() {
+            // mobile menu toggle (simple simulation)
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav-links');
+            const actions = document.querySelector('.header-actions');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', () => {
+                    if (nav.style.display === 'flex') {
+                        nav.style.display = 'none';
+                        actions.style.display = 'none';
+                    } else {
+                        nav.style.display = 'flex';
+                        actions.style.display = 'flex';
+                        if (window.innerWidth <= 768) {
+                            nav.style.flexDirection = 'column';
+                            nav.style.position = 'absolute';
+                            nav.style.top = '100%';
+                            nav.style.left = '0';
+                            nav.style.right = '0';
+                            nav.style.background = 'white';
+                            nav.style.padding = '2rem';
+                            nav.style.backdropFilter = 'blur(12px)';
+                            actions.style.position = 'absolute';
+                            actions.style.top = 'calc(100% + 160px)';
+                            actions.style.left = '0';
+                            actions.style.right = '0';
+                            actions.style.padding = '0 2rem 2rem';
+                            actions.style.flexDirection = 'column';
+                            actions.style.background = 'white';
+                        }
+                    }
+                });
+            }
+
+            // form submit feedback (demo)
+            const form = document.querySelector('.apply-container form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const btn = form.querySelector('.btn-submit');
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fa-regular fa-paper-plane"></i> Submit Application';
+                        const toast = document.createElement('span');
+                        toast.innerText = '✓ Application received — we’ll contact you soon.';
+                        toast.style.cssText = 'position:fixed;bottom:30px;right:30px;background:#0a4b50;color:white;padding:1rem 2rem;border-radius:60px;font-weight:500;z-index:9999;box-shadow:0 16px 32px rgba(10,75,80,0.2);border-left:6px solid #e07f5f;';
+                        document.body.appendChild(toast);
+                        setTimeout(() => toast.remove(), 4000);
+                    }, 1000);
+                });
+            }
+
+            // apply now hero button
+            document.querySelector('.btn-large')?.addEventListener('click', () => {
+                document.querySelector('.apply-section').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // join as pro header
+            document.querySelectorAll('.btn-outline, .btn-solid').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    if (btn.textContent.includes('Join as Pro')) {
+                        e.preventDefault();
+                        document.querySelector('.apply-section').scrollIntoView({ behavior: 'smooth' });
+                    } else if (btn.textContent.includes('Book a Service')) {
+                        alert('📞 Book service – demo (redirect to services)');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

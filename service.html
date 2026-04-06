@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remedy — one app, all solutions • fresh index</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+    }
+
+        :root {
+            /* signature palette — deeper, warmer, accessible (same as services) */
+            --deep-sea: #0a4b50;
+            --wave: #1e6d6b;
+            --mist: #d6e9ea;
+            --coral: #e07f5f;
+            --sand: #faf3ea;
+            --driftwood: #e6ddd4;
+            --charcoal: #1f2f33;
+            --stone: #4c6369;
+            --ivory: #fffefc;
+
+            /* shadows & radius — consistent with services page */
+            --shadow-sm: 0 12px 28px -8px rgba(10,75,80,0.06);
+            --shadow-md: 0 20px 36px -12px rgba(10,75,80,0.12);
+            --shadow-hover: 0 28px 44px -12px rgba(10,75,80,0.18);
+            --radius-card: 32px;
+            --radius-btn: 60px;
+
+            --transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background: var(--sand);
+            color: var(--charcoal);
+            line-height: 1.5;
+        }
+
+        /* ===== HEADER (same as services page, but adapted for index) ===== */
+        .index-header {
+            background: var(--ivory);
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid var(--driftwood);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 48px;
+            width: auto;
+            border-radius: 16px;
+            transition: transform 0.3s;
+            filter: drop-shadow(0 4px 8px rgba(10,75,80,0.12));
+        }
+        .logo:hover img {
+            transform: scale(1.05) rotate(-1deg);
+        }
+        .logo span {
+            background: linear-gradient(145deg, var(--deep-sea), var(--wave));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.8rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--stone);
+            font-weight: 560;
+            transition: color 0.2s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--coral);
+            transition: width 0.2s;
+            border-radius: 6px;
+        }
+        .nav-links a:hover {
+            color: var(--deep-sea);
+        }
+        .nav-links a:hover::after { width: 80%; }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.8rem;
+            font-weight: 600;
+            border-radius: var(--radius-btn);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .btn-primary {
+            background: var(--deep-sea);
+            color: white;
+            box-shadow: 0 6px 14px rgba(10,75,80,0.16);
+        }
+        .btn-primary:hover {
+            background: var(--wave);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--deep-sea);
+            border: 1.5px solid var(--wave);
+        }
+        .btn-secondary:hover {
+            background: var(--mist);
+            border-color: var(--deep-sea);
+            transform: translateY(-3px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--deep-sea);
+            cursor: pointer;
+        }
+
+        /* ===== HERO section — fresh index layout ===== */
+        .hero-index {
+            padding: 5rem 2rem 4rem;
+            background: radial-gradient(ellipse at 70% 30%, rgba(214,233,234,0.5) 0%, transparent 60%),
+                        linear-gradient(145deg, var(--ivory), var(--sand));
+            border-bottom: 1px solid var(--driftwood);
+        }
+
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .hero-text {
+            flex: 1 1 400px;
+        }
+        .hero-badge {
+            background: rgba(224,127,95,0.12);
+            color: var(--deep-sea);
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-block;
+            border: 1px solid rgba(224,127,95,0.2);
+            margin-bottom: 1.2rem;
+        }
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 750;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+        .hero-text h1 span {
+            color: var(--deep-sea);
+            background: linear-gradient(145deg, #0a4b50, #1e6d6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--stone);
+            max-width: 550px;
+            margin-bottom: 2rem;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            flex: 1 1 350px;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-card);
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--driftwood);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        .hero-visual i {
+            font-size: 4.5rem;
+            color: var(--coral);
+            margin-bottom: 1rem;
+            background: rgba(224,127,95,0.1);
+            padding: 1.2rem;
+            border-radius: 60px;
+        }
+        .visual-fee {
+            background: var(--deep-sea);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.2rem 0 0.5rem;
+        }
+
+        /* ===== FEATURED SERVICES (index preview) – matches services card style ===== */
+        .featured-section {
+            padding: 5rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+        .section-header h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wave), var(--coral));
+            border-radius: 6px;
+        }
+
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .index-service-card {
+            background: var(--ivory);
+            border-radius: var(--radius-card);
+            padding: 2rem 1.5rem;
+            border: 1px solid var(--driftwood);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+        }
+        .index-service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--wave);
+            box-shadow: var(--shadow-hover);
+        }
+        .index-service-card i {
+            font-size: 2.5rem;
+            color: var(--coral);
+            background: rgba(224,127,95,0.1);
+            padding: 1rem;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            transition: var(--transition);
+        }
+        .index-service-card:hover i {
+            background: var(--coral);
+            color: white;
+            transform: scale(1.05) rotate(2deg);
+        }
+        .index-service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--deep-sea);
+        }
+        .index-service-card p {
+            color: var(--stone);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+        .fee-badge {
+            background: rgba(10,75,80,0.06);
+            border: 1px dashed var(--wave);
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-weight: 600;
+            color: var(--deep-sea);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--deep-sea);
+            color: var(--deep-sea);
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .btn-outline:hover {
+            background: var(--deep-sea);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ===== WHY REMEDY (icon row) ===== */
+        .why-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+        .why-item {
+            text-align: center;
+            flex: 1 1 160px;
+        }
+        .why-item i {
+            font-size: 2.2rem;
+            color: white;
+            background: var(--wave);
+            padding: 0.8rem;
+            border-radius: 30px;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 8px 0 rgba(10,75,80,0.08);
+        }
+        .why-item h4 {
+            font-size: 1.1rem;
+            font-weight: 680;
+            color: var(--charcoal);
+        }
+
+        /* ===== CTA banner (index) ===== */
+        .cta-index {
+            background: linear-gradient(105deg, #1f4e53, #236b6a);
+            border-radius: 60px;
+            padding: 3.5rem 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            margin: 3rem 0 2rem;
+            box-shadow: 0 25px 40px -15px rgba(10,75,80,0.3);
+        }
+        .cta-index h3 {
+            font-size: 2.2rem;
+            font-weight: 680;
+            margin-bottom: 0.2rem;
+        }
+        .cta-index p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+        .cta-index .btn-primary {
+            background: white;
+            color: var(--deep-sea);
+            padding: 0.9rem 2.4rem;
+            font-size: 1.1rem;
+        }
+        .cta-index .btn-primary:hover {
+            background: var(--coral);
+            color: white;
+        }
+
+        /* ===== FOOTER (matches services page) ===== */
+        .index-footer {
+            background: var(--charcoal);
+            color: #b2c4c8;
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .footer-logo img {
+            height: 44px;
+            filter: brightness(0) invert(1);
+        }
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            color: #b2c4c8;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--coral);
+            padding-left: 5px;
+        }
+        .contact-info li {
+            display: flex;
+            gap: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            text-align: center;
+            color: #8da3aa;
+        }
+
+        /* responsive */
+        @media (max-width: 800px) {
+            .hero-text h1 { font-size: 2.8rem; }
+            .header-container { flex-wrap: wrap; }
+            .nav-links, .header-actions { display: none; }
+            .mobile-menu-btn { display: block; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+            .cta-index { flex-direction: column; text-align: center; gap: 1.5rem; }
+        }
+        @media (max-width: 550px) {
+            .footer-container { grid-template-columns: 1fr; }
+            .hero-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== INDEX PAGE – FRESH, MATCHING SERVICES STYLE ===== -->
+    <header class="index-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="Remedy logo.png" alt="Remedy">
+                <span>Remedy</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="professionals.html">Professionals</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="professionals.html" class="btn btn-secondary">Join as Pro</a>
+                <a href="booking.html" class="btn btn-primary">Book a Service</a>
+            </div>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- HERO (index version) -->
+    <section class="hero-index" id="home">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="hero-badge">✨ one app, all solutions</span>
+                <h1><span>Remedy</span> · on‑demand services at your doorstep</h1>
+                <p>Verified professionals, transparent pricing — home, tech, repair & delivery. ₹9 booking fee.</p>
+                <div class="hero-actions">
+                    <a href="service.html" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> Explore services</a>
+                    <a href="#how" class="btn btn-secondary"><i class="fa-regular fa-circle-play"></i> How it works</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <i class="fa-solid fa-bolt"></i>
+                <i class="fa-solid fa-wrench" style="color: var(--wave); margin-left: -10px;"></i>
+                <i class="fa-solid fa-truck-fast" style="color: var(--coral);"></i>
+                <div class="visual-fee"><i class="fa-solid fa-indian-rupee-sign"></i> 9 booking fee</div>
+                <p style="color: var(--stone); margin-top: 0.8rem;">per service · no hidden costs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED SERVICES (index preview) – cards match services page style -->
+    <section class="featured-section" id="services">
+        <div class="section-header">
+            <h2>What we offer</h2>
+            <p style="color: var(--stone); margin-top: 1rem;">from electrical to doorstep delivery – all with ₹9 booking</p>
+        </div>
+        <div class="index-grid">
+            <div class="index-service-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Electrical</h3>
+                <p>Repairs, wiring, safety checks</p>
+                <span class="fee-badge"><i class="fa-solid fa-indian-rupee-sign"></i> 9</span>
+                <a href="service.html" class="btn-outline">Book now</a>
+            </div>
+            <div class="index-service-card">
+                <i class="fa-solid fa-laptop"></i>
+                <h3>Electronics</h3>
+                <p>Phone, laptop, AC repair</p>
+                <span class="fee-badge"><i class="fa-solid fa-indian-rupee-sign"></i> 9</span>
+                <a href="service.html" class="btn-outline">Book now</a>
+            </div>
+            <div class="index-service-card">
+                <i class="fa-solid fa-car"></i>
+                <h3>Mechanical</h3>
+                <p>Car, bike, puncture</p>
+                <span class="fee-badge"><i class="fa-solid fa-indian-rupee-sign"></i> 9</span>
+                <a href="service.html" class="btn-outline">Book now</a>
+            </div>
+            <div class="index-service-card">
+                <i class="fa-solid fa-hard-hat"></i>
+                <h3>Civil</h3>
+                <p>Renovation & design</p>
+                <span class="fee-badge"><i class="fa-solid fa-indian-rupee-sign"></i> 9</span>
+                <a href="service.html" class="btn-outline">Book now</a>
+            </div>
+            <div class="index-service-card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h3>Pickup & delivery</h3>
+                <p>Document, parcel, grocery</p>
+                <span class="fee-badge"><i class="fa-solid fa-indian-rupee-sign"></i> 9</span>
+                <a href="service.html" class="btn-outline">Book now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY REMEDY (icon row) -->
+    <section class="featured-section" style="padding-top: 0;">
+        <div class="why-row">
+            <div class="why-item">
+                <i class="fa-solid fa-user-check"></i>
+                <h4>Verified pros</h4>
+                <p style="font-size: 0.9rem;">background‑checked</p>
+            </div>
+            <div class="why-item">
+                <i class="fa-solid fa-tag"></i>
+                <h4>₹9 booking</h4>
+                <p style="font-size: 0.9rem;">transparent fee</p>
+            </div>
+            <div class="why-item">
+                <i class="fa-solid fa-clock"></i>
+                <h4>On‑time</h4>
+                <p style="font-size: 0.9rem;">doorstep service</p>
+            </div>
+            <div class="why-item">
+                <i class="fa-solid fa-shield"></i>
+                <h4>Trusted</h4>
+                <p style="font-size: 0.9rem;">5k+ customers</p>
+            </div>
+        </div>
+
+        <!-- CTA banner (index) -->
+        <div class="cta-index">
+            <div>
+                <h3>Ready to book?</h3>
+                <p>Choose from 50+ services – all with ₹9 booking fee.</p>
+            </div>
+            <a href="service.html" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> Browse all services</a>
+        </div>
+    </section>
+
+    <!-- FOOTER (exactly like services page) -->
+    <footer class="index-footer" id="contact">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">
+                    <img src="Remedy logo.png" alt="Remedy">
+                    <span>Remedy</span>
+                </div>
+                <p style="color: #b2c4c8; max-width: 260px;">On‑demand platform connecting you with trusted local pros. ₹9 booking fee.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Electrical</a></li>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Mechanical</a></li>
+                    <li><a href="#">Construction</a></li>
+                    <li><a href="#">Pickup & Delivery</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">For Professionals</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> support@remedy.app</li>
+                    <li><i class="fas fa-phone-alt"></i> +91 8884850821</li>
+                    <li><i class="fas fa-map-pin"></i> Ballari</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Remedy. All rights reserved. ₹9 booking fee per service.</p>
+        </div>
+    </footer>
+
+    <!-- tiny script for mobile menu (minimal) + booking simulation (optional) -->
+    <script>
+        (function(){
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav-links');
+            const actions = document.querySelector('.header-actions');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', function() {
+                    const isOpen = nav.style.display === 'flex';
+                    if (!isOpen) {
+                        nav.style.display = 'flex';
+                        actions.style.display = 'flex';
+                        if (window.innerWidth <= 800) {
+                            nav.style.flexDirection = 'column';
+                            nav.style.position = 'absolute';
+                            nav.style.top = '100%';
+                            nav.style.left = '0';
+                            nav.style.right = '0';
+                            nav.style.background = 'white';
+                            nav.style.padding = '2rem';
+                            nav.style.boxShadow = '0 20px 30px rgba(0,0,0,0.05)';
+                            actions.style.position = 'absolute';
+                            actions.style.top = 'calc(100% + 200px)';
+                            actions.style.left = '0';
+                            actions.style.right = '0';
+                            actions.style.padding = '0 2rem 2rem';
+                            actions.style.flexDirection = 'column';
+                            actions.style.background = 'white';
+                        }
+                        mobileBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    } else {
+                        nav.style.display = 'none';
+                        actions.style.display = 'none';
+                        mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            }
+
+            // Simple booking simulation for demo buttons (index)
+            document.querySelectorAll('.btn-outline, .btn-primary, .btn-secondary').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    if (this.classList.contains('btn-outline') || this.innerText.includes('Browse') || this.innerText.includes('Explore')) return; // allow navigation
+                    e.preventDefault();
+                    const original = this.innerHTML;
+                    this.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> processing...';
+                    setTimeout(() => {
+                        this.innerHTML = original;
+                        const toast = document.createElement('span');
+                        toast.innerText = '✓ confirmed • ₹9 booking fee';
+                        toast.style.cssText = 'position:fixed;bottom:30px;right:30px;background:#0a4b50;color:white;padding:1rem 2rem;border-radius:60px;font-weight:550;z-index:9999;box-shadow:0 16px 32px rgba(10,75,80,0.25);border-left:6px solid #e07f5f;';
+                        document.body.appendChild(toast);
+                        setTimeout(() => toast.remove(), 2400);
+                    }, 600);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
